@@ -62,6 +62,7 @@
   <Target Name="CoreCompile">
     <Message Text="Building fast-rcnn cython files" Importance="high"/>
     <Exec Command="python setup.py build_ext --inplace" WorkingDirectory="..\..\..\lib"/>
+    <Exec Command="rmdir /S /Q build" WorkingDirectory="..\..\..\lib"/>
     <Message Text="Copying pycaffe" Importance="high"/>
     <Exec Command="python .\copy_pycaffe.py" />
   </Target>
