@@ -1,26 +1,29 @@
-# --------------------------------------------------------
+﻿# --------------------------------------------------------
 # Fast R-CNN
 # Copyright (c) 2015 Microsoft
 # Licensed under The MIT License [see LICENSE for details]
 # Written by Ross Girshick
 # --------------------------------------------------------
 
+import sys
 import numpy as np
 from distutils.core import setup
 from distutils.extension import Extension
 from Cython.Distutils import build_ext
 
+extra_compile_args = ["-Wno-cpp", "-Wno-unused-function"] \
+                      if sys.platform != 'win32' else []            
 cmdclass = {}
 ext_modules = [
     Extension(
         "utils.cython_bbox",
         ["utils/bbox.pyx"],
-        extra_compile_args=["-Wno-cpp", "-Wno-unused-function"],
+        extra_compile_args=extra_compile_args,
     ),
     Extension(
         "utils.cython_nms",
         ["utils/nms.pyx"],
-        extra_compile_args=["-Wno-cpp", "-Wno-unused-function"],
+        extra_compile_args=extra_compile_args,
     )
 ]
 cmdclass.update({'build_ext': build_ext})
