@@ -57,6 +57,9 @@
     <Folder Include="lib\fast_rcnn\" />
     <Folder Include="lib\roi_data_layer\" />
     <Folder Include="lib\utils\" />
+    <Folder Include="ptvs\" />
+    <Folder Include="ptvs\fast-rcnn\" />
+    <Folder Include="ptvs\fast-rcnn\faster-rcnn\" />
     <Folder Include="tools\" />
   </ItemGroup>
   <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
