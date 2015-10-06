@@ -15,10 +15,12 @@ def main():
     This is the main method to copy the files
     """
     # Set the path to your pycaffe here
-    source = osp.join(INSTALL_ROOT, 'Caffe', 'python')
+    source = r'C:\work\lib\caffe\caffe\python';
+    #source = osp.join(INSTALL_ROOT, 'Caffe', 'python')
     destination = '../../../caffe-fast-rcnn/python'
 
-    shutil.rmtree(destination)
+    if osp.exists(destination):
+        shutil.rmtree(destination)
     shutil.copytree(source, destination)
 
     # also copy the openblas dlls
